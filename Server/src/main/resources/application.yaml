@@ -8,8 +8,8 @@ spring:
     name: Server
   datasource:
     url: "jdbc:mysql://localhost:3306/android"
-    username: root
-    password: 10040109
+    username: test_user
+    password: Test_user123@
   jpa:
     hibernate:
       ddl-auto: update
