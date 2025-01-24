@@ -1,3 +1,4 @@
+/*
 package vn.iotstar.laptrinhmobiest6;
 
 import android.os.Bundle;
@@ -33,3 +34,4 @@ public class CreatePasswordActivity extends AppCompatActivity {
         });
     }
 }
+*/

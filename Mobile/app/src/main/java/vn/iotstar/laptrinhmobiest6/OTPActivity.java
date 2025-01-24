@@ -1,44 +1,42 @@
 package vn.iotstar.laptrinhmobiest6;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class OTPActivity extends AppCompatActivity {
+
     private EditText etOtp;
-    private Button btnVerifyOtp;
-    private String receivedOtp, email;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_otp);
 
-        etOtp = findViewById(R.id.et_otp);
-        btnVerifyOtp = findViewById(R.id.btn_verify_otp);
+        // Ánh xạ EditText với ID etOtp
+        etOtp = findViewById(R.id.etOtp);
 
-        email = getIntent().getStringExtra("email");
-        receivedOtp = getIntent().getStringExtra("otp");
-        btnVerifyOtp.setOnClickListener(v -> {
-            String otpInput = etOtp.getText().toString();
-            if (TextUtils.isEmpty(otpInput)) {
-                Toast.makeText(this, "Vui lòng nhập OTP!", Toast.LENGTH_SHORT).show();
-                return;
-            }
-            if (otpInput.equals(receivedOtp)) {
-                Toast.makeText(this, "Xác minh thành công!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(OTPActivity.this, CreatePasswordActivity.class);
-                intent.putExtra("email", email);
-                startActivity(intent);
-            } else {
-                Toast.makeText(this, "Mã OTP không đúng!", Toast.LENGTH_SHORT).show();
-            }
-        });
+        // Sự kiện khi nhấn "Xác nhận OTP"
+        findViewById(R.id.btnVerifyOTP).setOnClickListener(v -> verifyOTP());
+    }
+
+    private void verifyOTP() {
+        String otp = etOtp.getText().toString().trim();
+
+        if (TextUtils.isEmpty(otp)) {
+            Toast.makeText(this, "Vui lòng nhập OTP!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Giả sử OTP luôn đúng
+        Toast.makeText(this, "OTP xác nhận thành công!", Toast.LENGTH_SHORT).show();
+
+        // Trả kết quả về RegisterActivity
+        setResult(RESULT_OK);
+        finish();
     }
 }

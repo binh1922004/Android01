@@ -1,3 +1,4 @@
+/*
 package vn.iotstar.laptrinhmobiest6;
 
 import android.content.Intent;
@@ -40,3 +41,4 @@ public class EmailActivity extends AppCompatActivity {
         Toast.makeText(this, "OTP đã gửi tới " + email, Toast.LENGTH_SHORT).show();
     }
 }
+*/

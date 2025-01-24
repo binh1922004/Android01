@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
         });
         // Chuyển đến màn hình Đăng ký
         tvRegister.setOnClickListener(v -> {
-            startActivity(new Intent(LoginActivity.this, EmailActivity.class));
+            startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
         });
     }
 }
